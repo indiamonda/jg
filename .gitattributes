@@ -61,7 +61,10 @@
 *.woff filter=lfs diff=lfs merge=lfs -text
 *.woff2 filter=lfs diff=lfs merge=lfs -text
 *.eot filter=lfs diff=lfs merge=lfs -text
+# Generic "partN" split files (e.g. WebGL.zip.part1, hktruffled.wasm.part2)
+# Catches files where the dotted suffix is a chunk index, not an extension.
 *.part* filter=lfs diff=lfs merge=lfs -text
+# Other binary blobs seen in this repo
 *.hxc filter=lfs diff=lfs merge=lfs -text
 *.amabp4 filter=lfs diff=lfs merge=lfs -text
 *.io filter=lfs diff=lfs merge=lfs -text
