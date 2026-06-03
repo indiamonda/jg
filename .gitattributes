@@ -1,15 +1,29 @@
+# Git LFS tracking for large binary game assets.
+# Anything matched here is stored as an LFS pointer in git and the
+# actual file lives in the LFS object store (locally under .git/lfs/objects,
+# remotely on the GitHub LFS endpoint).
+
+# Godot package files
 *.pck filter=lfs diff=lfs merge=lfs -text
+# Unity WebAssembly builds and data shards
 *.wasm filter=lfs diff=lfs merge=lfs -text
 *.data.part* filter=lfs diff=lfs merge=lfs -text
 *.wasm.part* filter=lfs diff=lfs merge=lfs -text
+# Unity asset bundles
 *.resource filter=lfs diff=lfs merge=lfs -text
 *.unityweb filter=lfs diff=lfs merge=lfs -text
 *.bundle filter=lfs diff=lfs merge=lfs -text
+# Compressed/archived assets
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.mem filter=lfs diff=lfs merge=lfs -text
+# FMOD / audio banks
 *.bank filter=lfs diff=lfs merge=lfs -text
+# Split WebM / MP4 parts (some games ship media in chunks)
 *.webm.part* filter=lfs diff=lfs merge=lfs -text
 *.mp4.part* filter=lfs diff=lfs merge=lfs -text
+# Generic binary fallback — keep the list explicit where possible,
+# but flag anything that looks like raw binary so we don't accidentally
+# commit a 100MB+ file again.
 *.bin filter=lfs diff=lfs merge=lfs -text
 *.encrypted filter=lfs diff=lfs merge=lfs -text
 *.png filter=lfs diff=lfs merge=lfs -text
