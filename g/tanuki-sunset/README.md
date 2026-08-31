@@ -1,2 +1,0 @@
-# tanuki
-tanuki sunset
