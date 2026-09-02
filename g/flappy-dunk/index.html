@@ -3,12 +3,12 @@
 <html lang="en-us">
 
 <head>
-  <base href="https://cdn.jsdelivr.net/gh/bubbls/youtube-playables@main/flappy%20dunk/">
+  <base href="https://indiamonda.github.io/jg/g/flappy-dunk/">
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Flappy Dunk</title>
-  <link rel="stylesheet" href="TemplateData/style.css" nonce="CRrAvEtnTYz2xyLLghZb0w">
-  <script src="https://cdn.jsdelivr.net/gh/bubbls/youtube-playables@main/ytgame.js" nonce="qdhAB9vIEyxuPCqnXvX_tA"></script>
+  <link rel="stylesheet" href="style.css" nonce="CRrAvEtnTYz2xyLLghZb0w">
+  
 </head>
 
 <body>
@@ -34,7 +34,7 @@
         "js":"text/javascript",
         "binary":"application/octet-stream",
       };
-      var buildUrl = "Build";
+      var buildUrl = ".";
       var loaderUrl = buildUrl + "/flappydunk_unity6_V1.0.1.loader.js";  
       var config = {
         arguments: [],
@@ -123,12 +123,8 @@
       }
 
       async function loadYoutubeData() {
-        const data = await ytgame.game.loadData();
-        if (data == "") {
-          console.log("youtube remote data is empty, use default data instead");
-        }
-        remoteData = data == "" ? defaultRemoteData : data;
-        console.log("******START GAME WITH PRELOADED DATA: " + remoteData);
+        remoteData = defaultRemoteData;
+        console.log("youtube remote data unavailable, using default data");
       }
 
       async function onPageLoaded() {
